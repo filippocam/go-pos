@@ -9,16 +9,16 @@
         "title": "Go POS (Point of Sale) API",
         "contact": {
             "name": "Bagas Hizbullah",
-            "url": "https://github.com/bagashiz/go-pos",
+            "url": "http://localhost:8080/bagashiz/go-pos",
             "email": "bagash.office@simplelogin.com"
         },
         "license": {
             "name": "MIT",
-            "url": "https://github.com/bagashiz/go-pos/blob/main/LICENSE"
+            "url": "http://localhost:8080/go-pos/blob/main/LICENSE"
         },
         "version": "1.0"
     },
-    "host": "gopos.bagashiz.me",
+    "host": "localhost:8080",
     "basePath": "/v1",
     "paths": {
         "/categories": {

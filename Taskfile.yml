@@ -29,11 +29,11 @@ tasks:
 
   service:up:
     desc: "Start services containers"
-    cmd: podman-compose up -d
+    cmd: docker-compose up -d
 
   service:down:
     desc: "Stop services and remove containers"
-    cmd: podman-compose down
+    cmd: docker-compose down
 
   db:docs:
     desc: "Generate database documentation from DBML file"
@@ -44,7 +44,7 @@ tasks:
 
   db:create:
     desc: "Create database schema"
-    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'CREATE DATABASE {{.DB_DATABASE}};'"
+    cmd: docker exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'CREATE DATABASE {{.DB_DATABASE}};'"
     requires:
       vars:
         - DB_USERNAME
@@ -52,7 +52,7 @@ tasks:
 
   db:drop:
     desc: "Drop database schema"
-    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'DROP DATABASE {{.DB_DATABASE}};'"
+    cmd: docker exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'DROP DATABASE {{.DB_DATABASE}};'"
     requires:
       vars:
         - DB_USERNAME
@@ -60,7 +60,7 @@ tasks:
 
   db:cli:
     desc: "Connect to database using command line interface"
-    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -d {{.DB_DATABASE}}"
+    cmd: docker exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -d {{.DB_DATABASE}}"
     requires:
       vars:
         - DB_USERNAME
@@ -82,7 +82,7 @@ tasks:
 
   redis:cli:
     desc: "Connect to redis using command line interface"
-    cmd: podman exec -it redis_gopos redis-cli
+    cmd: docker exec -it redis_gopos redis-cli
 
   dev:
     desc: "Start development server"
